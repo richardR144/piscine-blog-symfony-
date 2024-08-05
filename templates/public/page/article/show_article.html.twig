@@ -1,0 +1,23 @@
+{% extends 'public/base.html.twig' %}
+
+
+{% block body %}
+
+    <section>
+
+        {% if article.isPublished %}
+
+            <article class="article">
+                <img class="article-image" src="{{ article.image }}" alt="{{ article.title }}" />
+                <h2>{{ article.title }}</h2>
+                <p>{{ article.description }}</p>
+                <p>{{ article.content }}</p>
+                <p>Créé le : {{ article.createdAt | date('d-m-Y') }}</p>
+            </article>
+
+        {% endif %}
+
+
+    </section>
+
+{% endblock %}

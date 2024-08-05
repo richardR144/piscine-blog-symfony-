@@ -1,0 +1,48 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+
+    <h1>Les articles : </h1>
+
+    <section class="admin-list-articles">
+
+        <a href="{{ path('admin_insert_article') }}">Créer un article</a>
+
+
+        <table class="admin-article-table">
+            <tr>
+                <td>Id</td>
+                <td>Image</td>
+                <td>Titre</td>
+                <td>Date</td>
+                <td>Est publié ?</td>
+                <td>Actions</td>
+            </tr>
+
+
+            {% for article in articles %}
+                <tr>
+                    <td>{{ article.id }}</td>
+                    <td><img class="admin-article-image" src="{{ article.image }}" alt="{{ article.title }}" /></td>
+                    <td>{{ article.title }}</td>
+                    <td>{{ article.createdAt | date('d-m-Y') }}</td>
+                    <td>
+                        {% if article.isPublished %}
+                            <p>Oui</p>
+                        {% else %}
+                            <p>Non</p>
+                        {% endif %}
+
+                    </td>
+                <td>
+                    <a href="{{ path('admin_delete_article', {id: article.id}) }}">Supprimer</a>
+                    <a href="{{ path('admin_update_article', {id: article.id}) }}">Mettre à jour</a>
+                </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+
+    </section>
+
+{% endblock %}

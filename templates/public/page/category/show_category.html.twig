@@ -1,0 +1,26 @@
+{% extends 'public/base.html.twig' %}
+
+{% block body %}
+
+    <h1>La catégorie : {{ category.title}} </h1>
+
+     <section>
+         {% for article in category.articles %}
+
+             {% if article.isPublished %}
+
+                 <article class="article">
+                     <img class="article-image" src="{{ article.image }}" alt="{{ article.title }}" />
+                     <h2>{{ article.title }}</h2>
+                     <p>{{ article.description }}</p>
+                     <a href="{{ path('show_article', {id: article.id}) }}">Voir l'article</a>
+                 </article>
+
+             {% endif %}
+
+         {% endfor %}
+     </section>
+
+
+
+{% endblock %}

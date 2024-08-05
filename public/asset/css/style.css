@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    width: 100%;
+    background-color: lightsalmon;
+    padding: 40px;
+}
+
+.footer {
+    height: 200px;
+    width: 100%;
+    background-color: lightskyblue;
+}
+
+.article {
+    width: 33%;
+    text-align: center;
+    padding: 20px;
+}
+
+.list-articles {
+    margin: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.article-image {
+    width: 100%;
+}
+
+.category {
+    width: 33%;
+    text-align: center;
+    padding: 20px;
+}
+
+.category a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.header-menu-item {
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+
+.header-menu-item a {
+    padding: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+}
+
+.logo {
+    width: 200px;
+}
+
+.admin-list-articles {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-article {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+
+.admin-article-image {
+    width: 100px;
+}
+
+.admin-article-table td{
+    border: 1px solid black;
+}
+
+.success-message {
+    width: 100%;
+    color: white;
+    background-color: green;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
