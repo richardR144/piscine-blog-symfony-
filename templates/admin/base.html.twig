@@ -12,7 +12,9 @@
     <header class="header">
         <nav class="header-nav">
             <ul>
-                <li><a href="{{ path('admin_list_articles') }}">Gérer les articles </a></li>
+                <li><a href="{{ path('admin_list_articles') }}">Gérer les articles</a></li>
+                <li><a href="{{ path('admin_list_categories') }}">Gérer les catégories</a></li>
+                <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
             </ul>
         </nav>
     </header>
@@ -30,9 +32,7 @@
         {% block body %}{% endblock %}
 
     <footer class="footer">
+
+        </footer>
     </body>
-
-
-
-</footer>
 </html>

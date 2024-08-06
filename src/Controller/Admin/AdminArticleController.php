@@ -15,9 +15,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminArticleController extends AbstractController
 {
-//tu as créé la route admin/articles vers l'admin list et tu l'enregistre dans mon repository
+//tu as créé la route nommée "admin_list_articles" dont l'url est /admin/articlesy
     #[Route('/admin/articles', 'admin_list_articles')]
-    //je créai ma fonction adminlistarticle qui me retourne les articles
+    //je créé ma fonction adminListArticles qui retourne un template twig contenant les articles
     public function adminListArticles(ArticleRepository $articleRepository): Response
     {
 
@@ -32,6 +32,7 @@ class AdminArticleController extends AbstractController
     public function deleteArticle(int $id, ArticleRepository $articleRepository, EntityManagerInterface $entityManager)
     {
         // là tu lui demandes de tous les trouver (les articles) par leurs identifiants
+        // mais juste un article par son id
         $article = $articleRepository->find($id);
         //sinon tu lui envoies un message d'erreurs
         if (!$article) {
@@ -91,11 +92,15 @@ class AdminArticleController extends AbstractController
         $articleCreateForm = $this->createForm(ArticleType::class, $article);
 
         $articleCreateForm->handleRequest($request);
-//si les articles créés sont valide alors ????
+        //dans la méthode on créé une instance de la classe Article,
+        // puis on demande à Symfony de gérer la récupération des données
+        // du formulaire grâce à la classe de gabarit de formulaire (ArticleType).
         if ($articleCreateForm->isSubmitted() && $articleCreateForm->isValid()) {
+            //La méthode persist() est utilisée pour indiquer à l’entity
+            // manager que l’objet passé en paramètre doit être persisté
             $entityManager->persist($article);
+            // flush est pour éxécuter une requête
             $entityManager->flush();
-
             $this->addFlash('success', 'article enregistré');
         }
 

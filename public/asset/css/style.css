@@ -10,6 +10,12 @@
     padding: 40px;
 }
 
+ul {
+    width: 100%;
+    border: solid 1px #000000;
+    gap: 2px;
+}
+
 .footer {
     height: 200px;
     width: 100%;
@@ -22,6 +28,14 @@
     padding: 20px;
 }
 
+section.list-articles {
+    border: solid 1px #000000;
+    gap: 2px;
+}
+
+.category {
+    background-color: #a78bfa;
+}
 .list-articles {
     margin: 30px;
     display: flex;

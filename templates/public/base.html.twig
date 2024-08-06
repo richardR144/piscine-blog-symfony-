@@ -1,14 +1,12 @@
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link href="{{ asset('asset/css/style.css') }}" rel="stylesheet" />
-
     </head>
-
     <body>
-
         <header class="header">
             <nav class="header-nav">
                 <a href="{{ path('home') }}">
@@ -18,6 +16,7 @@
                 <ul class="header-menu">
                     <li class="header-menu-item"><a href="{{ path('list_articles') }}">Articles</a></li>
                     <li class="header-menu-item"><a href="{{ path('list_categories') }}">Categories</a></li>
+
                 </ul>
             </nav>
         </header>
