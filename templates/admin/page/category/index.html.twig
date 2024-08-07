@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-
-<title>Category index</title>
+{% extends 'admin/base.html.twig' %}
 
 {% block body %}
-    <h1>Category index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Color</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
         {% for category in categories %}
             <tr>
                 <td>{{ category.id }}</td>

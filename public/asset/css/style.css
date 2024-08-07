@@ -110,3 +110,23 @@ section.list-articles {
     font-size: 30px;
     text-align: center;
 }
+
+.error-message {
+    width: 100%;
+    color: white;
+    background-color: red;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.admin-article-popup-delete {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 30px;
+    right: 30px;
+    padding: 100px;
+}
+
+button

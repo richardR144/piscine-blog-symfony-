@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminUserController extends AbstractController
 {
     #[Route('admin/users/insert', 'admin_insert_user')]
-    public function insertAdmin(UserPasswordHasherInterface $passwordhasher, Request $request, EntityManagerInterface $entityManager)
+    public function insertAdmin(UserPasswordHasherInterface $passwordhasher, Request $request, EntityManagerInterface $entityManager): \Symfony\Component\HttpFoundation\Response
     {
 
         if ($request->getMethod() === "POST") {
@@ -21,14 +21,15 @@ class AdminUserController extends AbstractController
             $user = new User();
 
             try {
-                $hashedPassword = $passwordHasher->hashPassword(
+
+                $hashedPassword = $$passwordhasher->hashPassword(
                     $user,
                     $password
                 );
 
                 $user->setEmail($email);
                 $user->setPassword($hashedPassword);
-                $user->setRole('ROLE_ADMIN');
+                $user->setRoles(['ROLE_ADMIN']);
 
                 $entityManager->persist($user);
                 $entityManager->flush();
@@ -41,7 +42,8 @@ class AdminUserController extends AbstractController
                 $this->addFlash('error', $exception->getMessage());
             }
         }
-        return $this->render('admin/page/user/insert_user.html.twig');
+
+        return $this->render('admin/page/insert_user.html.twig');
 
     }
 }
